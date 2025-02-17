@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+// Mengimpor model Post untuk berinteraksi dengan tabel posts di database
 use App\Models\Post;
 
 class PostController extends Controller
-{    
+{
     /**
      * index
      *
@@ -13,10 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //get all posts from Model
+        // Mengambil semua data post terbaru dari model Post
         $posts = Post::latest()->get();
 
-        //passing posts to view
+        // Mengirim data posts ke tampilan 'posts' untuk ditampilkan
         return view('posts', compact('posts'));
     }
 }
